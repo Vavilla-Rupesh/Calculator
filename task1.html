@@ -1,0 +1,103 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        body{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height:100vh;
+            background-color: rgb(181, 181, 181);
+        }
+        #result,#query{
+            border: none;
+            background-color: white;
+            color: black;
+            font-size: large;
+            grid-column: span 4;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            text-align: right;
+            padding: 5px;
+            border-radius: 5%;
+        }
+        #result{
+            color:green;
+        }
+        #calculator{
+            display:grid;
+            grid-template-columns: 4;
+            grid-template-rows: 7;
+            gap:10px;
+            justify-content: center;
+            align-items: center;
+            background-color: ghostwhite;
+            width: 300px;
+            height: auto;
+            padding-top: 25px;
+            padding-bottom: 25px;
+            border-radius: 5%;
+        }
+        div{
+            grid-column: span 4;
+        }
+        .numbers,.operators,.equal,.backspace{
+            height:50px;
+            width: 50px;
+            border-radius: 50%;
+            font-size: large;
+            font-weight: bold;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            text-align: center;
+        }
+        .numbers{
+            background-color: white;
+            color:black;   
+        }
+        .operators{
+            background-color: #dcdcdc;
+            color:green;
+        }
+        .equal{
+            background-color: green;
+            color:white;
+        }
+        .backspace{
+            background-color: rgba(211, 211, 211, 0.805);
+            color:red;
+        }
+    </style>
+</head>
+<body>
+    <h1>Standard Calculator</h1>
+    <form name="calculator" id="calculator">
+        <input type="text" name="query" id="query">
+        <input type="text" name="result" id="result">
+        <div><hr/></div>
+        <input class="backspace" type="button" value="C" onclick="calculator.query.value = '',calculator.result.value=''">
+        <input class="operators" type="button" value="(" onclick="calculator.query.value += ' ( '">
+        <input class="operators" type="button" value=")" onclick="calculator.query.value += ' ) '">
+        <input class="operators" type="button" value="/" onclick="calculator.query.value += ' / '"> 
+        <input class="numbers" type="button" value="7" onclick="calculator.query.value += '7'"> 
+        <input class="numbers" type="button" value="8" onclick="calculator.query.value += '8'"> 
+        <input class="numbers" type="button" value="9" onclick="calculator.query.value += '9'"> 
+        <input class="operators" type="button" value="*" onclick="calculator.query.value += ' * '">
+        <input class="numbers" type="button" value="4" onclick="calculator.query.value += '4'"> 
+        <input class="numbers" type="button" value="5" onclick="calculator.query.value += '5'"> 
+        <input class="numbers" type="button" value="6" onclick="calculator.query.value += '6'">
+        <input class="operators" type="button" value="-" onclick="calculator.query.value += ' - '">
+        <input class="numbers" type="button" value="1" onclick="calculator.query.value += '1'"> 
+        <input class="numbers" type="button" value="2" onclick="calculator.query.value += '2'"> 
+        <input class="numbers" type="button" value="3" onclick="calculator.query.value += '3'"> 
+        <input class="operators" type="button" value="+" onclick="calculator.query.value += ' + '">
+        <input class="operators" type="button" value="%" onclick="calculator.query.value += ' % '">
+        <input class="numbers" type="button" value="0" onclick="calculator.query.value += '0'"> 
+        <input class="numbers" type="button" value="." onclick="calculator.query.value += '.'">
+        <input class="equal" type="button" value="=" onclick="calculator.result.value = eval(calculator.query.value)"> 
+    </form>
+</body>
+</html>
